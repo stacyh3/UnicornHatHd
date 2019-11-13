@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnicornHatHdTest", "UnicornHatHdTest\UnicornHatHdTest.csproj", "{D5645467-413B-4867-9CC6-F8306DB4550A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnicornHatHd", "UnicornHatHd\UnicornHatHd.csproj", "{6363D587-6B9D-4B7F-AB01-20F7A767CF57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5645467-413B-4867-9CC6-F8306DB4550A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5645467-413B-4867-9CC6-F8306DB4550A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5645467-413B-4867-9CC6-F8306DB4550A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5645467-413B-4867-9CC6-F8306DB4550A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6363D587-6B9D-4B7F-AB01-20F7A767CF57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6363D587-6B9D-4B7F-AB01-20F7A767CF57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6363D587-6B9D-4B7F-AB01-20F7A767CF57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6363D587-6B9D-4B7F-AB01-20F7A767CF57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {020ADB94-2BDC-46F9-AF42-6B30B6AF845E}
+	EndGlobalSection
+EndGlobal
