@@ -23,13 +23,28 @@ namespace Iot.Device.UnicornHatHd
         /// </summary>
         public const int Columns = 16;
 
+        /// <summary>
+        /// Bytes per pixel - determines color depth
+        /// </summary>
         private const int PixelLength = 3;
 
         private const int FrameBufferLength = PixelLength * Rows * Columns;
 
         private byte[] frameBuffer = new byte[FrameBufferLength];
 
+        /// <summary>
+        /// If set to true, the drawing APIs will update the screen immediately.
+        /// If set to false, the caller can update the screen via a call to Update //TODO: Ref
+        /// Defaults to true
+        /// </summary>
+        public bool AutoUpdate { get; set; } = true;
+
         private Bitmap image = null;
+
+        /// <summary>
+        /// A Graphics object to let the user draw onto the UnicornHatHD screen using
+        /// .NET Core APIs
+        /// </summary>
         public Graphics Graph {get; set;}
 
         private float[,] brightnessLevels = new float[Rows, Columns];
@@ -62,6 +77,9 @@ namespace Iot.Device.UnicornHatHd
 
             image.SetPixel(x, y, color);
             brightnessLevels[x, y] = brightness;
+
+            if (AutoUpdate)
+                Update();
         }
 
         public void Fill(Color color, float brightness = 1)
@@ -69,17 +87,25 @@ namespace Iot.Device.UnicornHatHd
             for (int x = 0; x < 16; x++)
                 for (int y = 0; y < 16; y++)
                     SetPixel(x, y, color, brightness);
+
+            if (AutoUpdate)
+                Update();
         }
 
         public void RandomFill()
         {
             var r = new Random();
             for (int x = 0; x < 16; x++)
+            {
                 for (int y = 0; y < 16; y++)
                 {
                     var c = Color.FromArgb(0xff, r.Next(255), r.Next(255), r.Next(255));
                     SetPixel(x, y, c, (float)r.NextDouble());
                 }
+            }
+
+            if (AutoUpdate)
+                Update();
         }
 
         public void Clear()
@@ -87,19 +113,20 @@ namespace Iot.Device.UnicornHatHd
             for (int x = 0; x < 16; x++)
                 for (int y = 0; y < 16; y++)
                     SetPixel(x, y, Color.Empty);
+
+            if (AutoUpdate)
+                Update();
         }
 
 
         public void DrawText(int x, int y, string text)
         {
-            var image = new Bitmap(16, 16);
-
-            var graph = Graphics.FromImage(image);
+            //var graph = Graphics.FromImage(image);
 
             //graph.DrawString("Hello", );
         }
 
-        public void Show()
+        public void Update()
         {
             int i = 0;
 
